@@ -1,0 +1,18 @@
+export const GET_CATEGORIES = "GET_CATEGORIES";
+export const GET_CATEGORY_EVENTS = "GET_CATEGORY_EVENTS";
+//
+export const GET_EVENTS = "GET_EVENTS";
+export const GET_EVENTS_TODAY = "GET_EVENTS_TODAY";
+export const GET_EVENTS_DETAIL = "GET_EVENTS_DETAIL";
+//
+export const LOGIN_USER = "LOGIN_USER";
+export const REGISTER_USER = "REGISTER_USER";
+export const GET_USER = "GET_USER";
+//
+export const GET_FAVORITE = "GET_FAVORITE";
+//
+export const POST_ORDER = "POST_ORDER";
+export const POST_EVENTS = "POST_EVENTS";
+//
+export const GET_TICKET_NONCONFIRM = "GET_TICKET_NONCONFIRM";
+export const GET_TICKET_APPROVED = "GET_TICKET_APPROVED";
