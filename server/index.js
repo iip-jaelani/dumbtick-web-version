@@ -65,7 +65,8 @@ app.group("/", router => {
   router.get('/orders', authorized, ControllerUsers.getTicket);
   // update order 
   router.put('/order/:id', authorized, ControllerEvents.updateOrder)
-
+  //delete events
+  router.delete('/event/:id', ControllerEvents.deleteEvent)
   //ticket 
 });
 

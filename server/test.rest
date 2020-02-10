@@ -14,7 +14,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiO
   "like": 21
 }
 ###
-GET http://localhost:7000/events?start_time=2019-12-20
+GET https://app-dumtick-iipjaelani.herokuapp.com/events?start_time=10-03-2020
+
 
 ###
 GET http://localhost:7000/users
@@ -31,20 +32,21 @@ GET http://localhost:7000/categories
 ###
 GET http://localhost:7000/category/1/events
 ###
-POST http://localhost:7000/add-event
+POST https://app-dumtick-iipjaelani.herokuapp.com/add-event
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJ3YXdhbkBnbWFpbC5jb20iLCJpYXQiOjE1Nzc1MDU5ODR9.GMtu4wxoKoeFK9vvtWte6IKWQ4rNygjb-CyBOa8JlSU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJpaXBqYWVsYW5pQGdtYWlsLmNvbSIsImlhdCI6MTU4MTM0NDkwMn0.WhcNcOZmI74mAqN-pum-y51xJXSKFQV3X39PYLcTnjc
 Postman-Token: 86f89613-6a41-40c5-9c98-995a334ceae4
 
 {
-    "title": "coba 6666666",
+    "title": "coba ;ljf;lsdjf;ds",
     "category": 1,
-    "startTime": "12-12-2019",
-    "endTime": "01-01-2020",
+    "startTime": "10-03-2020",
+    "endTime": "12-03-2020",
     "price": 200000,
-    "deskription" : "nothink",
-    "address": "nothing",
-    "urlMaps": "nothing"
+    "deskription" : "asd",
+    "address": "nosdthing",
+    "urlMaps": "notdhing",
+    "image": "https://pbs.twimg.com/media/EKiOgokU8AQnj05.jpg"
 }
 ###
 GET http://localhost:7000/events?title=coba
@@ -79,19 +81,22 @@ Content-Type: application/json
 Postman-Token: 342fa5f9-78cc-464c-b79a-7074f269d93b
 
 {
-    "email" : "saya",
-    "password" : "123"
+    "email" : "iipjaelani@gmail.com",
+    "password" : "password"
 }
 ###
 # register OK
-POST http://localhost:7000/register
+POST https://app-dumtick-iipjaelani.herokuapp.com/register
 Content-Type: application/json
 
 {
-   "name": "lkdhsldfs",
-   "email": "septi@gmail.com",
+   "name": "iipjaelani",
+   "email": "iipjaelani@gmail.com",
    "password": "password"
 }
 ###
 
 GET http://localhost:7000/event/17
+###
+
+DELETE  http://localhost:7000/event/19

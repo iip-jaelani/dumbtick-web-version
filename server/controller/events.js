@@ -249,146 +249,6 @@ exports.updateOrder = (req, res) => {
 
 //-----------------------------POST EVENT----------------------------------
 
-// exports.addEvent = (req, res) => {
-//   let input = {
-//     title: req.body.title,
-//     category_id: req.body.category,
-//     start_time: req.body.startTime,
-//     end_time: req.body.endTime,
-//     price: req.body.price,
-//     deskription: req.body.deskription,
-//     address: req.body.address,
-//     url_maps: req.body.urlMaps,
-//     image: 'ini gambar',
-//     author_id: req.id
-//   }
-
-//   Events.findOne({
-//     where: {
-//       title: req.body.title
-//     }
-//   }).then(data => {
-//     if (!data) {
-//       Category.findOne({
-//         where: {
-//           id: req.body.category
-//         }
-//       }).then(category => {
-//         if (category) {
-//           Users.findOne({
-//             where: {
-//               id: req.id
-//             }
-//           }).then(users => {
-//             Events.create(input).then(result => {
-//               res.send({
-//                 id: result.id,
-//                 title: result.title,
-//                 category: {
-//                   id: category.id,
-//                   name: category.name
-//                 },
-//                 startTime: result.start_time,
-//                 endTime: result.end_time,
-//                 price: result.price,
-//                 deskription: result.deskription,
-//                 address: result.address,
-//                 urlMaps: result.url_maps,
-//                 img: result.image,
-//                 createdBy: {
-//                   id: users.id,
-//                   name: users.name,
-//                   phoneNuber: users.no_tlp,
-//                   email: users.email,
-//                   img: users.image
-//                 }
-//               })
-//             })
-//           })
-//         } else {
-//           res.send({
-//             message: "Missing category"
-//           })
-//         }
-//       })
-//     } else {
-//       res.send({
-//         message: "the article title already exists "
-//       })
-//     }
-//   }).catch(err => {
-//     res.status(500).json({
-//       message: "Internal server error",
-//       Error: err
-//     })
-//   })
-// }
-
-
-
-
-// exports.addEvent = (req, res) => {
-//   let input = {
-//     title: req.body.title,
-//     category_id: req.body.category,
-//     start_time: req.body.startTime,
-//     end_time: req.body.endTime,
-//     price: req.body.price,
-//     deskription: req.body.deskription,
-//     address: req.body.address,
-//     url_maps: req.body.urlMaps,
-//     image: 'ini gambar',
-//     author_id: req.id
-//   }
-
-//   Events.findOne({
-//     where: {
-//       title: req.body.title
-//     }
-//   }).then(data => {
-//     Category.findOne({
-//       where: {
-//         id: req.body.category
-//       }
-//     }).then(category => {
-//       Users.findOne({
-//         where: {
-//           id: req.id
-//         }
-//       }).then(users => {
-//         Events.create(input).then(result => {
-//           res.send({
-//             id: result.id,
-//             title: result.title,
-//             category: {
-//               id: category.id,
-//               name: category.name
-//             },
-//             startTime: result.start_time,
-//             endTime: result.end_time,
-//             price: result.price,
-//             deskription: result.deskription,
-//             address: result.address,
-//             urlMaps: result.url_maps,
-//             img: result.image,
-//             createdBy: {
-//               id: users.id,
-//               name: users.name,
-//               phoneNuber: users.no_tlp,
-//               email: users.email,
-//               img: users.image
-//             }
-//           })
-//         })
-//       })
-//     })
-//   }).catch(err => {
-//     res.status(500).json({
-//       message: "Internal server error",
-//       Error: err
-//     })
-//   })
-// }
 
 exports.addEvent = (req, res) => {
   let input = {
@@ -400,13 +260,36 @@ exports.addEvent = (req, res) => {
     deskription: req.body.deskription,
     address: req.body.address,
     url_maps: req.body.urlMaps,
-    image: 'ini gambar',
+    image: req.body.gambar,
     author_id: req.id
   }
 
   Events.create(input).then(ress => {
     res.send({
-      message: 'success'
+      message: 'success',
+      data: ress
     })
+  })
+}
+
+
+
+exports.deleteEvent = (req, res) => {
+  Events.findOne({
+    where: {
+      id: req.params.id
+    }
+  }).then(ress => {
+    if (ress) {
+      Events.destroy({
+        where: {
+          id: req.params.id
+        }
+      }).then(ress => {
+        res.send({
+          message: 'Success'
+        })
+      })
+    }
   })
 }
